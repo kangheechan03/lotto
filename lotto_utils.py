@@ -63,3 +63,12 @@ def top_numbers(count, top=20):
 # [블록6] 자주나온번호20개중에서한게임
 def make_hot_game(count):
     return sorted(random.sample(top_numbers(count), 6))
+
+# [블록7] 내가고른번호+ 나머지는자동
+def fill_game(picked):
+    rest = []
+    for n in range(1, 46):
+        if n not in picked:
+            rest.append(n)
+    game = list(picked) + random.sample(rest, 6 - len(picked))
+    return sorted(game)

@@ -23,6 +23,12 @@ with tab1:                          # ①자동뽑기
     if 'games' in st.session_state:
         for i in range(len(st.session_state.games)):
             st.write(f'**{i+ 1}게임** : {to_text(st.session_state.games[i])}')
+# 1111
+with tab2:                          # ②번호별당첨횟수
+    st.write('1회~ 1250회당첨번호6개기준(보너스제외)')
+    st.bar_chart(pd.Series(count, name='당첨횟수'))
+    top10 = top_numbers(count, 10)
+    st.write('자주나온번호TOP 10 :', to_text(top10))
 
 
 
